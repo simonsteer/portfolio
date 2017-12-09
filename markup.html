@@ -1,32 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link href="https://fonts.googleapis.com/css?family=Lora:700|Open+Sans:400,400i,700,700i" rel="stylesheet">
-  <link rel="stylesheet" href="/public/styles/style.css">
-  <title>Document</title>
-</head>
-<body>
-
-<header>
-  <h2 class="header__title">Simon Steer</h2>
-  <h3 class="header__subtitle">web developer</h3>
-  <img class="header__logo" src="public/assets/images/logo.svg" alt="">
-  <nav>
-    <ul>
-      <li><a href="#">about</a></li>
-      <li><a href="#">projects</a></li>
-      <li><a href="#">contact</a></li>
-    </ul>
-  </nav>
-</header>
-
-
+<section class="about">
+  <h1 class="section__h1">About</h1>
+  <figure>
+    <figcaption class="slide-from-left">
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aliquam adipisci ut odit cum autem iusto. Consequatur neque
+        illum beatae minus exercitationem, voluptates aut asperiores odio possimus quisquam doloribus eos rerum esse iste
+        impedit dolore aliquam ut repellendus voluptate! Eum laboriosam dignissimos sequi, voluptas consequuntur eveniet
+        suscipit enim perferendis facilis ducimus.</p>
+      <h2 class="subheading">Skillset</h2>
+      <ul class="skills">
+        <li>
+          <img src="public/assets/icons/react.svg" alt="React logo">
+        </li>
+        <li>
+          <img src="public/assets/icons/javascript.svg" alt="JavaScript logo">
+        </li>
+        <li>
+          <img src="public/assets/icons/gulp.svg" alt="Gulp logo">
+        </li>
+        <li>
+          <img src="public/assets/icons/firebase.svg" alt="Firebase logo">
+        </li>
+        <li>
+          <img src="public/assets/icons/jquery.svg" alt="jQuery logo">
+        </li>
+        <li>
+          <img src="public/assets/icons/sass.svg" alt="Sass logo">
+        </li>
+        <li>
+          <img src="public/assets/icons/css.svg" alt="CSS3 logo">
+        </li>
+        <li>
+          <img src="public/assets/icons/html.svg" alt="HTML5 logo">
+        </li>
+      </ul>
+    </figcaption>
+    <img src="public/assets/images/me.jpg" alt="Portrait of myself" class="slide-from-right">
+  </figure>
+</section>
 
 <section class="projects">
-  <div class="wrapper">
   <h1 class="section__h1">Projects</h1>
 
   <figure>
@@ -184,22 +196,21 @@
       <img src="public/assets/images/projects/lemmachain/lemmachain-macbook.gif" alt="">
     </div>
   </figure>
-  
-</div>
+
 </section>
 
-
-
-
-
-</div>
-
-<footer>
-    design and development © Simon Steer 2017
-</footer>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script src="/public/scripts/main.js"></script>
-
-</body>
-</html>
+<section class="contact">
+  <h1 class="section__h1">Contact</h1>
+  <div class="slide-up">
+    <h2 class="contact__h2">Let's make something beautiful together.</h2>
+    <a class="contact__link" href="mailto:simon@simonsteer.com">simon@simonsteer.com</a>
+  </div>
+  <div>
+    <img src="public/assets/images/me.svg" alt="" class="slide-from-left">
+    <form class="contact__form slide-from-right" action="submit">
+      <input type="text" placeholder="enter your subject line here">
+      <textarea placeholder="enter your message here"></textarea>
+      <button>send email</button>
+    </form>
+  </div>
+</section>

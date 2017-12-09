@@ -1,16 +1,15 @@
 .about {
+  p {
+    margin-right: 1rem;
+  }
   figure {
     display: flex;
     &>img {
       @include box-shadow;
-      @include slide-from-right;
       width: 200px;
       height: 15%;
       object-fit: cover;
       margin-right: 0.4rem
-    }
-    figcaption {
-      @include fade-in-up;
     }
   }
 }

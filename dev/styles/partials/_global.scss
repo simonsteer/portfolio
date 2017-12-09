@@ -3,9 +3,7 @@ body {
 }
 
 .wrapper {
-  width: 100%;
-  max-width: 1024px;
-  margin: 0 auto;
+  @include wrapper
 }
 
 ul {
@@ -30,12 +28,47 @@ figure {
 }
 
 section {
-  padding: 3rem 0;
+  padding: 150px 0 3rem 0;
+  * {
+    transition: opacity 0.5s;
+  }
+  &.projects {
+    figure {
+      opacity: 0;
+      &.fade-in {
+        p {
+          animation: 0.5s 1 slideup;
+        }
+        h2 {
+          animation: 0.5s 1 slidefromleft;
+        }
+        .projects__project-images {
+          animation: 0.5s 1 slidefromright;
+        }
+        .skills {
+          animation: 0.5s 1 slidedown;
+        }
+      }
+      &:nth-of-type(2n) {
+        &.fade-in {
+          h2 {
+            animation: 0.5s 1 slidefromright;
+          }
+          .projects__project-images {
+            animation: 0.5s 1 slidefromleft;
+          }
+        }
+      }
+    }
+  }
+  h1 {
+    animation: 0.5s 1 slidedown;
+  }
 }
 
 .section__h1 {
   @include box-shadow;
-  @include slide-from-left;
+  ;
   font-size: 1rem;
   font-family: $font--headings;
   display: inline-block;

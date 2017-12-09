@@ -5,11 +5,61 @@ header {
   width: 100%;
   min-height: calc(400px - 3rem);
   margin: 1.5rem 0;
-  img {
-    width: 50vw;
-    max-width: 350px;
-    min-width: 250px;
+  &.header__alt {
+    position: fixed;
+    margin: 0;
+    height: 75px;
+    min-height: auto;
+    background: $color--main;
+    .header__logo {
+      width: 100px;
+      top: 10px;
+    }
+    .header__title {
+      font-size: 36px;
+      top: 100px;
+      margin: 0 0 0 auto;
+    }
+    .header__subtitle {
+      display: none;
+    }
   }
+  z-index: 1;
+  position: relative;
+  &::after {
+    content: '';
+    z-index: -1;
+    position: absolute;
+    top: 75px;
+    height: 75px;
+    width: 100vw;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0.71) 75%, rgba(255, 255, 255, 0) 100%);
+  }
+}
+
+.header__title {
+  text-align: right;
+  font-family: $font--headings;
+  font-weight: 700;
+  margin: 0;
+  left: 0;
+  bottom: 0;
+  position: relative;
+}
+
+.header__subtitle {
+  font-family: $font--body;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 1rem;
+  margin: 0 0 1rem;
+}
+
+.header__logo {
+  position: relative;
+  right: 0.5rem;
+  top: -0.5rem;
+  width: 50vw;
 }
 
 nav {
