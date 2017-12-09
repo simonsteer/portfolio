@@ -1,0 +1,60 @@
+$color--main: #43c0ff;
+$color--accent: #ffff00;
+$font--headings: 'Lora', serif;
+$font--body: 'Open Sans', sans-serif;
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin box-shadow {
+  box-shadow: 0.4rem 0.4rem black;
+  border: 0.15rem solid black;
+}
+
+@keyframes fadeinup {
+  0% {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0rem);
+  }
+}
+
+@keyframes slidefromleft {
+  0% {
+    opacity: 0;
+    transform: translateX(-3rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0rem);
+  }
+}
+
+@keyframes slidefromright {
+  0% {
+    opacity: 0;
+    transform: translateX(3rem);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0rem);
+  }
+}
+
+@mixin fade-in-up {
+  animation: 1s 1 fadeinup;
+}
+
+@mixin slide-from-left {
+  animation: 1s 1 slidefromleft;
+}
+
+@mixin slide-from-right {
+  animation: 1s 1 slidefromright;
+}

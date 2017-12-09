@@ -1,0 +1,53 @@
+.contact {
+  div{
+    &:nth-of-type(1) {
+      @include fade-in-up;
+    }
+    &:nth-of-type(2) {
+      display: flex;
+      margin-top: 2rem;
+    }
+  }
+  img {
+    @include slide-from-left;
+    width: 30%;
+    height: 30%;
+    margin-right: -0.25rem;
+  }
+  button {
+    @include box-shadow;
+    border-radius: 0;
+    align-self: flex-end;
+    padding: 0.3rem;
+    background: white;
+  }
+}
+
+.contact__h2 {
+  font-size: 1rem;
+  margin-bottom: 0;
+}
+
+.contact__link {
+  font-weight: 700;
+  color: $color--main;
+  text-decoration: underline;
+}
+
+.contact__form {
+  @include slide-from-right;
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  input,
+  textarea {
+    @include box-shadow;
+    width: 100%;
+    margin-bottom: 1rem;
+    padding: 0.3rem;
+  }
+  textarea {
+    height: 40%;
+    resize: none;
+  }
+}

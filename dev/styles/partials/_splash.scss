@@ -1,0 +1,17 @@
+.splash__header {
+  font-family: $font--headings;
+  font-weight: 700;
+  margin: 0;
+}
+
+.splash__subhead {
+  font-family: $font--body;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 1rem;
+  margin: 0 0 1rem;
+}
+
+[class*=splash] {
+  text-align: center;
+}

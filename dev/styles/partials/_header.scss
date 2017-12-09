@@ -1,0 +1,47 @@
+header {
+  @include flex-center;
+  flex-direction: column;
+  height: calc(100vh - 30px - 3rem);
+  width: 100%;
+  min-height: calc(400px - 3rem);
+  margin: 1.5rem 0;
+  img {
+    width: 50vw;
+    max-width: 350px;
+    min-width: 250px;
+  }
+}
+
+nav {
+  margin: 1rem 0;
+  li {
+    font-family: $font--body;
+    font-weight: 700;
+    &:nth-child(2) {
+      &::before,
+      &::after {
+        content: ' / ';
+        white-space: pre;
+      }
+    }
+  }
+  a {
+    position: relative;
+    &::before {
+      transition: 0.3s;
+      content: '';
+      position: absolute;
+      bottom: -0.2rem;
+      left: 50%;
+      width: 0;
+      border-bottom: 0.1rem solid black;
+    }
+    &:active {
+      text-decoration: underline;
+    }
+    &:hover::before {
+      left: 0;
+      width: 100%;
+    }
+  }
+}

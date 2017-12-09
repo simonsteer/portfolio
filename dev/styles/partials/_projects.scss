@@ -1,0 +1,27 @@
+.projects {
+  figure {
+    display: flex;
+    margin-bottom: 2rem;
+  }
+  figcaption {
+    @include fade-in-up;
+    width: 60%;
+    padding-right: 2rem;
+  }
+}
+
+.projects__project-images {
+  @include box-shadow;
+  @include slide-from-right;
+  height: 40%;
+  width: 40%;
+  margin-right: 0.4rem;
+  background:#e6e6e6;
+  img {
+    max-width: 100%;
+  }
+}
+.projects__heading {
+  font-family: $font--headings;
+  margin: 0 0 2.5rem 0;
+}

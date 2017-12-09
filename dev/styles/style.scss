@@ -1,3 +1,13 @@
-body {
-  background:red;
-}
+@import 'partials/setup';
+
+@import 'partials/variables';
+@import 'partials/global';
+
+@import 'partials/splash';
+
+@import 'partials/header';
+@import 'partials/footer';
+
+@import 'partials/projects';
+@import 'partials/about';
+@import 'partials/contact';

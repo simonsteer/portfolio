@@ -6,7 +6,7 @@ const sass = require('gulp-sass');
 const concat = require('gulp-concat');
 const babel = require('gulp-babel');
 const autoprefixer = require('gulp-autoprefixer');
-const browserSync = require('browser-sync').create();
+const browserSync = require('browser-sync');
 const reload = browserSync.reload;
 const plumber = require('gulp-plumber');
 
@@ -31,14 +31,17 @@ gulp.task('scripts', () => {
 
 gulp.task('watch', function () {
   gulp.watch('./dev/scripts/*.js', ['scripts']);
-  gulp.watch('./dev/styles/*.scss', ['styles']);
+  gulp.watch('./dev/styles/**/*.scss', ['styles']);
   gulp.watch('*.html', reload);
+  gulp.watch('./public/styles/*.css', reload);
 });
 
 gulp.task('browser-sync', () => {
-  browserSync.init({
-    server: '.'
+  return browserSync.init({
+    server: {
+      baseDir: '.'
+    }
   })
 });
 
-gulp.task('default', ['browser-sync', 'styles', 'scripts', 'watch']);
+gulp.task('default', ['styles', 'scripts', 'browser-sync', 'watch']);
