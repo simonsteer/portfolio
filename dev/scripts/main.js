@@ -3,7 +3,8 @@ const portfolio = {}
 portfolio.page = 'home';
 
 portfolio.replaceContent = () => {
-  $('header a').on('click', function() {
+  $('header a').on('click', function(e) {
+    e.preventDefault()
     portfolio.page = $(this).text()
     console.log(portfolio.page)
     if (portfolio.page !== 'home') {
@@ -18,7 +19,7 @@ portfolio.scrollAnimations = () => {
       $(window).scroll(() => {
         let topOffset = el.offset().top
         let trigger = topOffset;
-        let position = $(window).scrollTop() + ($(window).height()/1.3);
+        let position = $(window).scrollTop() + ($(window).height() - 25);
         if (position >= trigger) {
           $(this).addClass('fade-in')
         }

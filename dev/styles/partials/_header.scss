@@ -1,27 +1,38 @@
 header {
-  @include flex-center;
-  flex-direction: column;
   height: calc(100vh - 30px - 3rem);
   width: 100%;
   min-height: calc(400px - 3rem);
   margin: 1.5rem 0;
+  transition: all 0.5s;
+  span {
+    position: relative;
+    left: calc(50% - 100px - 0.5rem);
+    transition: all 0.5s;
+  }
   &.header__alt {
     position: fixed;
     margin: 0;
     height: 75px;
     min-height: auto;
-    background: $color--main;
-    .header__logo {
-      width: 100px;
-      top: 10px;
-    }
+    animation: 0.5s 0.3s 1 headercolor forwards;
     .header__title {
-      font-size: 36px;
-      top: 100px;
-      margin: 0 0 0 auto;
+      @include wrapper;
+      left: auto;
+      top: 25px;
     }
     .header__subtitle {
-      display: none;
+      opacity: 0;
+    }
+    span {
+      left: 0%;
+    }
+    .header__logo {
+      top: 12px;
+      width: 100px;
+    }
+    nav {
+      @include wrapper;
+      top: 80px;
     }
   }
   z-index: 1;
@@ -31,6 +42,7 @@ header {
     z-index: -1;
     position: absolute;
     top: 75px;
+    left: 0;
     height: 75px;
     width: 100vw;
     background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0.71) 75%, rgba(255, 255, 255, 0) 100%);
@@ -39,30 +51,45 @@ header {
 
 .header__title {
   text-align: right;
+  position: absolute;
+  display: inline-block;
   font-family: $font--headings;
   font-weight: 700;
+  font-size: 32px;
   margin: 0;
+  width: calc(50% + 92px);
   left: 0;
-  bottom: 0;
-  position: relative;
+  top: 45px;
+  transition: all 1s;
 }
 
 .header__subtitle {
   font-family: $font--body;
   font-weight: 400;
   font-style: italic;
-  font-size: 1rem;
-  margin: 0 0 1rem;
+  font-size: 24px;
+  display: inline-block;
+  position: absolute;
+  top: 65px;
+  left: calc(50% - 76px);
+  transition: opacity 0.5s;
 }
 
 .header__logo {
-  position: relative;
-  right: 0.5rem;
-  top: -0.5rem;
-  width: 50vw;
+  position: absolute;
+  top: 155px;
+  width: 200px;
+  transition: top 0.5s, width 0.5s;
 }
 
 nav {
+  position: relative;
+  display: inline-flex;
+  justify-content: flex-end;
+  width: calc(50% + 114px);
+  top: 400px;
+  font-size: 18px;
+  transition: all 0.5s;
   margin: 1rem 0;
   li {
     font-family: $font--body;
