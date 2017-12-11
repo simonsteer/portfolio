@@ -19,7 +19,7 @@ a {
 }
 
 p {
-  margin-top: 0;
+  margin: 0;
   font-size: 0.7rem;
 }
 
@@ -28,7 +28,7 @@ figure {
 }
 
 section {
-  padding: 150px 0 3rem 0;
+  padding: calc(75px + 3.75rem) 0 3rem 0;
   * {
     transition: opacity 0.5s;
   }
@@ -87,9 +87,13 @@ section {
 }
 
 .skills {
+  flex-wrap: wrap;
   margin-left: -0.6rem;
   img {
-    height: 4rem;
+    margin-top: 0.75rem;
+    height: 2.25rem;
+    width: 2.25rem;
+    object-fit: cover;
   }
 
 }

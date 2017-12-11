@@ -6,7 +6,6 @@ portfolio.data = {
     lemmachain: {
       description: 'Lemmachain is a game made with JavaScript/jQuery that combines elements of Boggle, Scrabble, and Word Twist together. It formerly utilized the Oxford English Dictionary’s API to check whether a word exists or not before allowing the player to score it, and currently uses a local dictionary.js file for faster validation.',
       technologies: [
-        'react',
         'javascript',
         'gulp',
         'firebase',
@@ -52,9 +51,9 @@ portfolio.replaceContent = () => {
   
   $('.header__logo').on('click', function() {
     portfolio.page = 'home'
-    $('header').removeClass('header__alt')
     $('section').fadeOut(300, function () {
       $('section').remove()
+      $('header').removeClass('header__alt')
     })
     $('footer').fadeOut(300, function () {
       $('footer').remove()
@@ -163,7 +162,10 @@ portfolio.projects = () => {
           $('<a>')
             .addClass('projects__project-url')
             .text(portfolio.data.projects[project].url)
-            .attr('href', `${portfolio.data.projects[project].url}`),
+            .attr({
+              href: `https://${portfolio.data.projects[project].url}`,
+              target: '_blank',
+            }),
           $('<h2>').addClass('subheading').text('Technologies Used'),
           ul
         ),
@@ -194,7 +196,7 @@ portfolio.contact = () => {
         </div>
         <div>
           <img src="public/assets/images/me.svg" alt="line drawing of a man leaning to the side" class="slide-from-left">
-          <form class="contact__form slide-from-right" method="POST" action="http://www.formspree.io/simonpsteer@gmail.com">
+          <form class="contact__form slide-from-right" method="POST" action="https://formspree.io/simonpsteer@gmail.com">
             <input type="text" placeholder="enter your email here" name="email">
             <textarea name="message" placeholder="enter your message here"></textarea>
             <button>send email</button>

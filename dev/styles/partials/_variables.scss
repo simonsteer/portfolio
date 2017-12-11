@@ -16,7 +16,10 @@ $font--body: 'Open Sans', sans-serif;
 
 @mixin wrapper {
   width: 100%;
-  max-width: 900px;
+  max-width: 80vw;
   padding: 0 1rem;
   margin: 0 auto;
+  @media (max-width: 1175px) {
+    max-width: 900px;
+  }
 }
