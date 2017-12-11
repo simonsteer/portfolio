@@ -46,37 +46,48 @@ portfolio.data = {
 
 portfolio.page = 'home';
 
+portfolio.footer = $('<footer>').text('design and development © Simon Steer 2017');
+
 portfolio.replaceContent = () => {
   
   $('.header__logo').on('click', function() {
     portfolio.page = 'home'
     $('header').removeClass('header__alt')
-    $('body').children('section').fadeOut(300)
+    $('section').fadeOut(300, function () {
+      $('section').remove()
+    })
+    $('footer').fadeOut(300, function () {
+      $('footer').remove()
+    })
   })
 
   $('header a').on('click', function(e) {
 
     e.preventDefault()
+
     if (portfolio.page === $(this).text()) {
       return
     };
 
     portfolio.page = $(this).text()
-    console.log(portfolio.page)
-
+    
     // Giving the header a class of 'header__alt' will transform it from a splash page to a fixed header
     // The .css() method being applied to .header__logo will return it to its default position, as the function cause it to track towards the cursor will end.
     $('header').addClass('header__alt')
     $('.header__logo').css('transform', `translate(0, 0)`)
-
-    $('body').children('section').fadeOut(300)
+    $('section').fadeOut(300)
+    $('footer').fadeOut(300)
     
     setTimeout (function () {
-      $('body').children('section').remove()
-      $('body').append(portfolio[portfolio.page]);
-      portfolio.scrollAnimations();
+      window.scrollTo(0,0)
+      $('section').remove()
+      $('footer').remove()
+      $('header').after(
+        portfolio[portfolio.page],
+        $('<footer>').text('development & design © Simon Steer 2017')
+      )
+      portfolio.scrollAnimations()
     }, 300)
-
   })
 }
 
@@ -173,12 +184,46 @@ portfolio.projects = () => {
 }
 
 portfolio.contact = () => {
+  return(`
+    <section class="contact">
+      <div class="wrapper">
+        <h1 class="section__h1">Contact</h1>
+        <div class="slide-up">
+          <h2 class="contact__h2">Let's make something beautiful together.</h2>
+          <a class="contact__link" href="mailto:simon@simonsteer.com">simon@simonsteer.com</a>
+        </div>
+        <div>
+          <img src="public/assets/images/me.svg" alt="line drawing of a man leaning to the side" class="slide-from-left">
+          <form class="contact__form slide-from-right" method="POST" action="http://www.formspree.io/simonpsteer@gmail.com">
+            <input type="text" placeholder="enter your email here" name="email">
+            <textarea name="message" placeholder="enter your message here"></textarea>
+            <button>send email</button>
+          </form>
+        </div>
+      </div>
+    </section>
+  `)
+
 }
 
 portfolio.scrollAnimations = () => {
-  $('.projects figure').first().addClass('fade-in')
+
+  $(window).resize(function () {
+    $('.projects figure').each(function () {
+      let el = $(this)
+      if (el.offset().top <= $(window).height()) {
+        el.addClass('fade-in');
+      }
+    })
+  })
+
   $('.projects figure').each(function() {
       let el = $(this)
+
+      if (el.offset().top <= $(window).height()) {
+        el.addClass('fade-in');
+      }
+
       $(window).scroll(() => {
         let trigger = el.offset().top
         let position = $(window).scrollTop() + ($(window).height() - 5);
@@ -197,7 +242,7 @@ portfolio.floatLogo = () => {
     if (portfolio.page === 'home') {
       let x = (e.clientX / $(window).width());
       let y = (e.clientY / $(window).height());
-      $('.header__logo').css('transform', `translate(${x}rem, ${y}rem)`)
+      $('.header__logo').css('transform', `translate(calc(${x}rem - 0.5rem), ${y}rem)`)
     }
   })
 }
