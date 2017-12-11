@@ -5,7 +5,7 @@
 @keyframes slideup {
   0% {
     opacity: 0;
-    transform: translateY(1rem);
+    transform: translateY(2rem);
   }
   100% {
     transform: translateY(0rem);
@@ -20,7 +20,7 @@
 @keyframes slidedown {
   0% {
     opacity: 0;
-    transform: translateY(-1rem);
+    transform: translateY(-2rem);
   }
   100% {
     transform: translateY(0rem);
@@ -35,7 +35,7 @@
 @keyframes slidefromleft {
   0% {
     opacity: 0;
-    transform: translateX(-3rem);
+    transform: translateX(-4rem);
   }
   100% {
     transform: translateX(0rem);
@@ -50,7 +50,7 @@
 @keyframes slidefromright {
   0% {
     opacity: 0;
-    transform: translateX(3rem);
+    transform: translateX(4rem);
   }
   100% {
     transform: translateX(0rem);
@@ -60,10 +60,4 @@
 
 .slide-from-right {
   animation: 0.5s 1 slidefromright;
-}
-
-@keyframes headercolor {
-  100% {
-    background: $color--main;
-  }
 }

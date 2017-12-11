@@ -14,11 +14,9 @@ header {
     margin: 0;
     height: 75px;
     min-height: auto;
-    animation: 0.5s 0.3s 1 headercolor forwards;
     .header__title {
-      @include wrapper;
-      left: auto;
       top: 25px;
+      width: 100%;
     }
     .header__subtitle {
       opacity: 0;
@@ -27,16 +25,23 @@ header {
       left: 0%;
     }
     .header__logo {
-      top: 12px;
+      top: -20px;
       width: 100px;
+      cursor: pointer;
     }
     nav {
       @include wrapper;
-      top: 80px;
+      top: 40px;
+      margin: 0rem;
+    }
+    &::before {
+      height: 75px;
     }
   }
   z-index: 1;
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
   &::after {
     content: '';
     z-index: -1;
@@ -47,20 +52,29 @@ header {
     width: 100vw;
     background: linear-gradient(to bottom, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0.71) 75%, rgba(255, 255, 255, 0) 100%);
   }
+  &::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 0;
+    width: 100vw;
+    background: $color--main;
+    transition: all 0.5s;
+  }
 }
 
 .header__title {
+  @include wrapper;
+  position: relative;
+  width: 194px;
   text-align: right;
-  position: absolute;
-  display: inline-block;
   font-family: $font--headings;
   font-weight: 700;
   font-size: 32px;
-  margin: 0;
-  width: calc(50% + 92px);
   left: 0;
   top: 45px;
-  transition: all 1s;
+  transition: all 0.5s;
 }
 
 .header__subtitle {
@@ -77,8 +91,9 @@ header {
 
 .header__logo {
   position: absolute;
-  top: 155px;
+  top: 80px;
   width: 200px;
+  z-index: 2;
   transition: top 0.5s, width 0.5s;
 }
 
@@ -87,7 +102,7 @@ nav {
   display: inline-flex;
   justify-content: flex-end;
   width: calc(50% + 114px);
-  top: 400px;
+  top: 310px;
   font-size: 18px;
   transition: all 0.5s;
   margin: 1rem 0;

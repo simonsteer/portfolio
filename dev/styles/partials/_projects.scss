@@ -32,5 +32,13 @@
 }
 .projects__heading {
   font-family: $font--headings;
-  margin: 0 0 2.5rem 0;
+  margin: 0 0 1.5rem 0;
+  text-transform: capitalize;
+}
+
+.projects__project-url {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: $color--main;
+  text-decoration: underline;
 }
