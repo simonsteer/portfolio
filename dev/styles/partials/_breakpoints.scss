@@ -26,6 +26,7 @@
   }
   .projects__project-images {
     width: 100%;
+    height: calc(100vw - 2.5rem);
     margin-bottom: 1rem;
   }
 }

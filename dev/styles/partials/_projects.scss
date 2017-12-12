@@ -2,7 +2,7 @@
   overflow: hidden;
   figure {
     display: flex;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
     &:nth-of-type(2n) {
       figcaption {
         order: 2;
@@ -15,17 +15,17 @@
     }
   }
   figcaption {
-    width: 60%;
+    width: calc(100% - 15.4rem);
     padding: 0 2rem 0 0;
   }
 }
 
 .projects__project-images {
-  @include box-shadow;
-  height: 40%;
-  width: 40%;
-  margin-right: 0.4rem;
-  background:#e6e6e6;
+  // @include box-shadow;
+  width: 15rem;
+  height: 15rem;
+  // margin-right: 0.4rem;
+  // background:#e6e6e6;
   img {
     max-width: 100%;
   }

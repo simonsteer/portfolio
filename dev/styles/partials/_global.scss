@@ -2,6 +2,25 @@ body {
   font-family: $font--body;
 }
 
+canvas {
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  animation: 0.3s 1 showcanvas;
+}
+
+@keyframes showcanvas {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 .wrapper {
   @include wrapper
 }
@@ -91,8 +110,8 @@ section {
   margin-left: -0.6rem;
   img {
     margin-top: 0.75rem;
-    height: 2.25rem;
-    width: 2.25rem;
+    height: 2rem;
+    width: 2rem;
     object-fit: cover;
   }
 
