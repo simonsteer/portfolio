@@ -1,20 +1,20 @@
 header {
-  height: calc(100vh - 30px - 3rem);
+  height: calc(100vh - 3rem);
   width: 100%;
   min-height: calc(400px - 3rem);
-  margin: 1.5rem 0;
   transition: height 0.5s, color 0.5s;
-  span {
+  div:not(.wrapper) {
     position: relative;
     left: calc(50% - 100px);
+    top: calc(50vh - 210px);
     transition: all 0.5s;
   }
   &.header__alt {
     position: fixed;
-    margin: 0;
     height: 75px;
     min-height: auto;
     .header__title {
+      cursor: pointer;
       padding-right: 0;
       top: 25px;
       width: 100%;
@@ -22,18 +22,19 @@ header {
     .header__subtitle {
       opacity: 0;
     }
-    span {
+    div {
       left: 0%;
+      top: -33px;
     }
     .header__logo {
-      top: -33px;
       width: 100px;
+      top: -80px;
       cursor: pointer;
     }
     nav {
       @include wrapper;
       padding-right: 0;
-      top: 40px;
+      top: -40px;
       margin: 0rem;
     }
     &::before {
@@ -80,7 +81,7 @@ header {
   font-weight: 700;
   font-size: 32px;
   left: 0;
-  top: calc(50vh - 250px);
+  top: calc(50vh - 205px);
   transition: all 0.5s;
 }
 
@@ -90,18 +91,17 @@ header {
   font-style: italic;
   font-size: 24px;
   display: inline-block;
-  position: absolute;
-  top: calc(50vh - 240px);
+  position: relative;
+  top: calc(50vh - 225px);
   left: calc(50% - 76px);
   transition: all 0.5s;
 }
 
 .header__logo {
   position: absolute;
-  top: calc(50vh - 230px);
+  top: -25px;
   width: 200px;
   z-index: 2;
-  transform-origin: 50% 50%;
   transition: top 0.5s, width 0.5s;
 }
 
@@ -110,7 +110,7 @@ nav {
   display: inline-flex;
   justify-content: flex-end;
   width: calc(50% + 114px);
-  top: calc(50vh);
+  top: calc(50vh - 20px);
   font-size: 18px;
   transition: all 0.5s;
   margin: 1rem 0;
@@ -128,7 +128,7 @@ nav {
   a {
     position: relative;
     &::before {
-      transition: 0.3s;
+      transition: all 0.3s;
       content: '';
       position: absolute;
       bottom: -0.2rem;

@@ -87,7 +87,6 @@ section {
 
 .section__h1 {
   @include box-shadow;
-  ;
   font-size: 1rem;
   font-family: $font--headings;
   display: inline-block;
@@ -107,7 +106,6 @@ section {
 
 .skills {
   flex-wrap: wrap;
-  margin-left: -0.6rem;
   img {
     margin-top: 0.75rem;
     height: 2rem;

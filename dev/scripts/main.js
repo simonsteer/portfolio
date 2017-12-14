@@ -12,7 +12,12 @@ portfolio.getMobileOperatingSystem = () => {
 }
 
 portfolio.data = {
-  skillset: ['react', 'javascript', 'gulp', 'firebase', 'jquery', 'sass', 'css', 'html'],
+  social: {
+    twitter: 'https://twitter.com/simonsteer_',
+    linkedin: 'https://www.linkedin.com/in/simon-steer-834612150/',
+    github: 'https://github.com/simonsteer'
+  },
+  skillset: ['react', 'git', 'javascript', 'gulp', 'firebase', 'jquery', 'sass', 'css', 'html'],
   projects: {
     lemmachain: {
       description: 'Lemmachain is a game made with JavaScript/jQuery that combines elements of Boggle, Scrabble, and Word Twist together. It formerly utilized the Oxford English Dictionary’s API to check whether a word exists or not before allowing the player to score it, and currently uses a local dictionary.js file for faster validation.',
@@ -49,9 +54,24 @@ portfolio.data = {
         'html'
       ],
       url: 'https://notes-2f738.firebaseapp.com/'
+    },
+    coursea: {
+      description: 'This is a conversion of a Photoshop file to a responsive website layout. I was given the photoshop file, extracted the assets myself, and recreated the mockup using HTML5 and CSS3. The final design is optimized for mobile, and can be viewed on any device.',
+      technologies: [
+        'sass',
+        'css',
+        'html'
+      ],
+      url: 'http://www.simonsteer.com/coursea'
     }
   },
-  about: `My name is Simon Steer and I'm a web developer based in Toronto. You can typically find me rebuilding bootleg versions of jQuery plugins or talking to strangers' dogs on the street. Prior to becoming a web developer, I attended university for graphic design, .`
+  about: `My name is Simon Steer and I'm a web developer based in Toronto with a background in graphic design. You can typically find me rebuilding existing jQuery plugins or reading up on different web development-related skills (my current obsession is three.js). My passion towards web development drives me to create seamless, functional, and accessible web experiences.
+
+  I'm constantly looking to better myself as a developer. Although there are many skills I have accumulated already, there is an infinite wealth of knowledge when it comes to web development. What inspires me to further my learning is the unknown; when I visit a website and I really have to think hard about how it was built, that excites me. My first instinct is to try and rebuild it myself and learn a new skill. I love being challenged, and will never settle or let my skills stagnate.
+
+  When I'm not at the computer, I'm probably either at the gym, reading about intersectional politics, or playing video games on outdated consoles... But I'm usually at the computer.
+  
+  `
 }
 
 portfolio.page = 'home';
@@ -60,14 +80,19 @@ portfolio.footer = $('<footer>').text('design and development © Simon Steer 201
 
 portfolio.replaceContent = () => {
   
-  $('.header__logo').on(`${portfolio.touchEvent}`, function() {
-    portfolio.page = 'home'
-    $('section').fadeOut(300, function () {
-      $('section').remove()
-      $('header').removeClass('header__alt')
-    })
-    $('footer').fadeOut(300, function () {
-      $('footer').remove()
+  const home = [$('.header__logo'), $('.header__title')]
+
+  home.forEach(e => {
+    e.on(`${portfolio.touchEvent}`, function() {
+      portfolio.page = 'home'
+      $('.header__alt').removeClass('header__before')
+      $('section').fadeOut(300, function () {
+        $('section').remove()
+        $('header').removeClass('header__alt')
+      })
+      $('footer').fadeOut(300, function () {
+        $('footer').remove()
+      })
     })
   })
 
@@ -84,6 +109,7 @@ portfolio.replaceContent = () => {
     // Giving the header a class of 'header__alt' will transform it from a splash page to a fixed header
     // The .css() method being applied to .header__logo will return it to its default position, as the function cause it to track towards the cursor will end.
     $('header').addClass('header__alt')
+    $('.header__alt').addClass('header__before')
     $('section').fadeOut(300)
     $('footer').fadeOut(300)
     
@@ -106,31 +132,46 @@ portfolio.replaceContent = () => {
 portfolio.about = () => {
   let about = $('<section>').addClass('about');
   let heading = $('<h1>').addClass('section__h1').text('About');
-  let subheading = $('<h2>').addClass('subheading').text('Skillset');
+  let skillset = $('<h2>').addClass('subheading').text('Skillset');
+  let findmeon = $('<h2>').addClass('subheading').text('Find me on');
   let figure = $('<figure>');
   let figcaption = $('<figcaption>').addClass('slide-from-left');
   let content = $('<p>').text(portfolio.data.about).addClass('slide-down');
-  let ul = $('<ul>').addClass('skills').addClass('slide-up');
+  let skills = $('<ul>').addClass('skills').addClass('slide-up');
+  let platforms = $('<ul>').addClass('skills').addClass('slide-up');
 
   portfolio.data.skillset.forEach(skill => {
-    ul.append($('<li>').append($('<img>').attr({
+    skills.append($('<li>').append($('<img>').attr({
       src: `public/assets/icons/${skill}.svg`,
       alt: `${skill} logo`
     })))
   })
 
+
+  for (let platform in portfolio.data.social) {
+    platforms.append($('<li>').append($('<a>').attr({
+      href: `${portfolio.data.social[platform]}`,
+      target: '_blank'
+    }).append($('<img>').attr({
+      src: `public/assets/icons/${platform}.svg`,
+      alt: `${platform} logo`
+    }))))
+  }
+
   let wrapper = $('<div>').addClass('wrapper')
 
   figcaption.append(
     content,
-    subheading,
-    ul
+    skillset,
+    skills,
+    findmeon,
+    platforms
   )
 
   figure.append(
     figcaption,
     $('<img>').attr({
-      src: 'public/assets/images/me.jpg',
+      src: 'public/assets/images/portrait.jpg',
       alt: 'portrait photo of Simon Steer',
       class: 'slide-from-right'
     })
@@ -217,7 +258,7 @@ portfolio.contact = () => {
         </div>
         <div>
           <img src="public/assets/images/me.svg" alt="line drawing of a man leaning to the side" class="slide-from-left">
-          <form class="contact__form slide-from-right" method="POST" action="https://formspree.io/simonpsteer@gmail.com">
+          <form class="contact__form slide-from-right" method="POST" action="https://formspree.io/simon@simonsteer.com">
             <input type="text" placeholder="enter your email here" name="email">
             <textarea name="message" placeholder="enter your message here"></textarea>
             <button>send email</button>
@@ -271,22 +312,20 @@ portfolio.carousel = () => {
       'align-items': 'center',
       width: '1,2rem',
       height: '1.2rem',
-      top: 'calc(50% - 0.6rem)'
+      top: 'calc(50% - 1.6rem)'
     }
     const next = {
-      right: '0',
+      left: 'calc(50% + 6.9rem)'
     }
     const prev = {
-      left: '0',
+      right: 'calc(50% + 6.9rem)'
     }
     const images = {
       position: 'absolute',
       top: 0,
-      left: 0,
-      width: '100%',
-      height: '100%',
+      left: 'calc(50% - 7.5rem)',
+      width: '15rem',
       padding: '0 1rem',
-      'object-fit': 'contain',
       transition: 'left 0.3s'
     }
 
@@ -366,12 +405,12 @@ portfolio.initCarousel = () => {
       .show()
       .css({
         top: 0,
-        left: 0
+        left: 'calc(50% - 7.5rem)'
       })
 
     setTimeout(function () {
       $('[class*="carousel"]').prop('disabled', false)
-    }, 301)
+    }, 300)
 
 
   })
@@ -412,12 +451,12 @@ portfolio.initCarousel = () => {
       .show()
       .css({
         top: 0,
-        left: 0
+        left: 'calc(50% - 7.5rem)'
       })
       
       setTimeout (function() {
         $('[class*="carousel"]').prop('disabled', false)
-      }, 301)
+      }, 300)
 
   })
 }
@@ -438,7 +477,7 @@ portfolio.threejs = () => {
   // window.innerWidth / window.innerHeight => use this as the standard for now
   // 0.1, 1000 => represents the field of depth (min, max) that objects will render within
   let scene = new THREE.Scene();
-  let camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+  let camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.1, 1000);
 
   // Pass 'true' to the 'alpha' parameter to gain access to transparency
   let renderer = new THREE.WebGLRenderer({
@@ -453,7 +492,7 @@ portfolio.threejs = () => {
   document.body.appendChild(renderer.domElement);
 
 
-  let geometry = new THREE.BoxGeometry(6, 6, 6);
+  let geometry = new THREE.BoxGeometry(7, 7, 7);
   let material = new THREE.MeshBasicMaterial({
     color: 0xe6e6e6,
     wireframe: true
@@ -465,22 +504,22 @@ portfolio.threejs = () => {
 
   function animate() {
     requestAnimationFrame(animate);
-    cube.rotation.x += 0.001;
+    cube.rotation.x += 0.0008;
     cube.rotation.y += 0.001;
+    cube.rotation.z += 0.0009;
     renderer.render(scene, camera);
   }
   animate();
 
+  // A function which allows the render to adjust to window resizing
+  window.addEventListener('resize', onWindowResize, false);
+  function onWindowResize() {
+    camera.aspect = window.innerWidth / window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+  }
+
 }
-
-
-
-
-
-
-
-
-
 
 portfolio.init = () => {
   portfolio.getMobileOperatingSystem()

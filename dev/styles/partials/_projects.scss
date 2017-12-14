@@ -15,20 +15,17 @@
     }
   }
   figcaption {
-    width: calc(100% - 15.4rem);
+    width: calc(100% - 20rem);
     padding: 0 2rem 0 0;
   }
 }
 
 .projects__project-images {
   // @include box-shadow;
-  width: 15rem;
+  width: 20rem;
   height: 15rem;
   // margin-right: 0.4rem;
   // background:#e6e6e6;
-  img {
-    max-width: 100%;
-  }
 }
 .projects__heading {
   font-family: $font--headings;
