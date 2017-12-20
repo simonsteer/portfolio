@@ -76,8 +76,6 @@ portfolio.data = {
 
 portfolio.page = 'home';
 
-portfolio.footer = $('<footer>').text('design and development © Simon Steer 2017');
-
 portfolio.replaceContent = () => {
   
   const home = [$('.header__logo'), $('.header__title')]
@@ -119,7 +117,7 @@ portfolio.replaceContent = () => {
       $('footer').remove()
       $('header').after(
         portfolio[portfolio.page],
-        $('<footer>').text('development & design © Simon Steer 2017')
+        $('<footer>').text('design & development © Simon Steer 2017')
       )
       if (portfolio.page === 'projects') {
         portfolio.scrollAnimations('.projects figure')
