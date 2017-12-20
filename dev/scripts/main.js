@@ -69,9 +69,7 @@ portfolio.data = {
 
   I'm constantly looking to better myself as a developer. Although there are many skills I have accumulated already, there is an infinite wealth of knowledge when it comes to web development. What inspires me to further my learning is the unknown; when I visit a website and I really have to think hard about how it was built, that excites me. My first instinct is to try and rebuild it myself and learn a new skill. I love being challenged, and will never settle or let my skills stagnate.
 
-  When I'm not at the computer, I'm probably either at the gym, reading about intersectional politics, or playing video games on outdated consoles... But I'm usually at the computer.
-  
-  `
+  When I'm not at the computer, I'm probably either at the gym, reading about intersectional politics, or playing video games on outdated consoles... But I'm usually at the computer.`
 }
 
 portfolio.page = 'home';
