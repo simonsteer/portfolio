@@ -1,5 +1,5 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from 'react'
+import ReactDOM from 'react-dom'
 
 import {
   BrowserRouter as Router,
@@ -12,6 +12,10 @@ import About from './about'
 import Contact from './contact'
 import Projects from './projects'
 import Footer from './footer'
+
+import { frickityInit } from './frickity'
+
+frickityInit()
 
 class App extends React.Component {
   render() {
