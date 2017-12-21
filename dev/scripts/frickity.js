@@ -15,8 +15,8 @@ export function frickity() {
         top: 0,
         left: 'calc(50% - 7.5rem)',
         width: '15rem',
-        padding: '0rem',
-        transition: 'left 0.3s',
+        padding: '0rem 0.15rem',
+        transition: 'left 0.29s',
         display: 'none'
       }
       img.setAttribute('image', i + 1)
@@ -47,10 +47,10 @@ export function frickity() {
       top: 'calc(50% - 0.8rem)'
     }
     const next = {
-      left: 'calc(50% + 6.9rem)'
+      left: 'calc(50% + 6.99rem)'
     }
     const prev = {
-      right: 'calc(50% + 6.9rem)'
+      right: 'calc(50% + 6.99rem)'
     }
 
     let nextArrow = document.createElement('img')
@@ -82,6 +82,10 @@ export function frickity() {
 
 export function frickityInit() {
   function carouselButton() {
+
+    if (event.target.className !== 'carousel-next' && event.target.className !== 'carousel-prev') {
+      return
+    }
 
     document.querySelector('body').removeEventListener('click', carouselButton)
     setTimeout(function () {
@@ -125,7 +129,6 @@ export function frickityInit() {
       currentImage.style.display = 'none';
       currentImage.style.left = 0;
     }, 300)
-    console.log(carousel.querySelector(`[image="${next}"]`))
     Object.assign(
       nextImage.style, {
         top: 0,
@@ -135,7 +138,7 @@ export function frickityInit() {
     )
     setTimeout(function () {
       nextImage.style.left = 'calc(50% - 7.5rem)';
-    }, 1)
+    }, 100)
 
     if (btn === 'carousel-next') {
       if (current === images) {

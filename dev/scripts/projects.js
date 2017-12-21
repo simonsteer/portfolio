@@ -21,6 +21,7 @@ export default class Projects extends React.Component {
                 <figcaption>
                   <h2 className="projects__heading">{project}</h2>
                   <p>{projects[project].description}</p>
+                  <a href={projects[project].url} className="projects__project-url" target="_blank">view live</a>
                   <h2 className="subheading">Technologies Used</h2>
                   <ul className="skills">
                     {projects[project].technologies.map(skill => {
