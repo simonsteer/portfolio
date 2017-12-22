@@ -13,19 +13,23 @@ import Contact from './contact'
 import Projects from './projects'
 import Footer from './footer'
 
+import PageShell from './page-shell'
+
 import { frickityInit } from './frickity'
+import cube from './threejs'
 
 frickityInit()
+cube()
 
 class App extends React.Component {
   render() {
     return (
       <div>
-        <Header />
-        <Route path={`/about`} component={About} />
-        <Route path={`/contact`} component={Contact} />
-        <Route path={`/projects`} component={Projects} />
-        <Route path={`/:path`} component={Footer} />
+        <Header key='header' />
+        <Route path='/about' component={PageShell(About)} />
+        <Route path='/contact' component={PageShell(Contact)} />
+        <Route path='/projects' component={PageShell(Projects)} />
+        <Route path='/:path' component={PageShell(Footer)} />
       </div>
     )
   }
@@ -36,6 +40,3 @@ ReactDOM.render(
     <App />
   </Router>
   , document.querySelector('#root'));
-
-// <Route path={`/projects`} component={<Projects />} />
-// <Route path={`/contact`} component={<Contact />} />

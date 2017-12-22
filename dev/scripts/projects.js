@@ -17,7 +17,7 @@ export default class Projects extends React.Component {
           <h1 className="section__h1">Projects</h1>
           {Object.keys(projects).map(project => {
             return (
-              <figure className="fade-in">
+              <figure className="fade-in" key={project}>
                 <figcaption>
                   <h2 className="projects__heading">{project}</h2>
                   <p>{projects[project].description}</p>
@@ -26,7 +26,7 @@ export default class Projects extends React.Component {
                   <ul className="skills">
                     {projects[project].technologies.map(skill => {
                       return (
-                        <li>
+                        <li key={`${project}-${skill}`}>
                           <img src={`public/assets/icons/${skill}.svg`} />
                         </li>
                       )
@@ -35,7 +35,7 @@ export default class Projects extends React.Component {
                 </figcaption>
                 <div className="projects__project-images carousel">
                     {devices.map(device => {
-                    return <img src={`public/assets/images/projects/${project}/${project}-${device}.gif`} />
+                    return <img src={`public/assets/images/projects/${project}/${project}-${device}.gif`} key={`${project}-${device}`} />
                     })}
                 </div>
               </figure>

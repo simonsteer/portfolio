@@ -24,7 +24,7 @@ export default class About extends React.Component {
               <ul className="skills">
                 {skillset.map(skill => {
                   return (
-                  <li>
+                  <li key={skill}>
                     <img src={`public/assets/icons/${skill}.svg`}/>
                   </li>
                   )
@@ -34,7 +34,7 @@ export default class About extends React.Component {
               <ul className="skills">
                 {Object.keys(social).map(platform => {
                   return (
-                  <li>
+                  <li key={platform}>
                     <a href={social[platform]} target="_blank">
                       <img src={`public/assets/icons/${platform}.svg`} />
                     </a>

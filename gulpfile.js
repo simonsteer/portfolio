@@ -22,7 +22,8 @@ gulp.task('js', () => {
   browserify('dev/scripts/app.js', { debug: true })
     .transform('babelify', {
       sourceMaps: true,
-      presets: ['es2015', 'react']
+      presets: ['es2015', 'react', 'stage-2'],
+      plugins: ['transform-decorators-legacy', 'babel-plugin-root-import']
     })
     .bundle()
     .on('error', notify.onError({
