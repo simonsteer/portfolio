@@ -10,6 +10,7 @@ export default {
       description: 'Lemmachain is a game made with JavaScript/jQuery that combines elements of Boggle, Scrabble, and Word Twist together. It formerly utilized the Oxford English Dictionary’s API to check whether a word exists or not before allowing the player to score it, and currently uses a local dictionary.js file for faster validation.',
       technologies: [
         'javascript',
+        'jquery',
         'gulp',
         'firebase',
         'sass',

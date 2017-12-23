@@ -1,17 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-
-import {
-  BrowserRouter as Router,
-  Route,
-  Link
-} from 'react-router-dom'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { AnimatedSwitch } from 'react-router-transition';
 
 import Header from './header'
 import About from './about'
 import Contact from './contact'
 import Projects from './projects'
-import Footer from './footer'
 
 import PageShell from './page-shell'
 
@@ -21,18 +16,22 @@ import cube from './threejs'
 frickityInit()
 cube()
 
-class App extends React.Component {
-  render() {
+const App = () => {
     return (
-      <div>
-        <Header key='header' />
-        <Route path='/about' component={PageShell(About)} />
-        <Route path='/contact' component={PageShell(Contact)} />
-        <Route path='/projects' component={PageShell(Projects)} />
-        <Route path='/:path' component={PageShell(Footer)} />
+      <div className="app">
+        <Header />
+        <AnimatedSwitch
+          atEnter={{ opacity: 0 }}
+          atLeave={{ opacity: 0 }}
+          atActive={{ opacity: 1 }}
+          className="animated-switch"
+        >
+          <Route path='/about' render={PageShell(About)} />
+          <Route path='/contact' render={PageShell(Contact)} />
+          <Route path='/projects' render={PageShell(Projects)} />
+        </AnimatedSwitch>
       </div>
     )
-  }
 }
 
 ReactDOM.render(

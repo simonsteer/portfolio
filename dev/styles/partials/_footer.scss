@@ -1,14 +1,4 @@
-@keyframes footer {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
 footer {
-  overflow: hidden;
   @include flex-center;
   font-family: $font--body;
   font-size: 12px;
@@ -18,5 +8,5 @@ footer {
   height: 30px;
   text-align: center;
   background: $color--main;
-  animation: 0.5s 1 footer;
+  transition: opacity 0.5s;
 }

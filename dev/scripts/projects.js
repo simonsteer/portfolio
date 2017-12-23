@@ -3,14 +3,13 @@ import data from './data'
 import { frickity } from './frickity'
 
 export default class Projects extends React.Component {
-
   componentDidMount() {
     frickity()
   }
-
   render() {
     const { projects } = data
     const devices = ['macbook', 'ipad', 'iphone']
+    frickity()
     return (
       <section className="projects">
         <div className="wrapper">

@@ -1,23 +1,19 @@
+.animated-switch {
+  position: relative;
+  &>div {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+}
+
 .fade-in {
   opacity: 1 !important;
 }
 
-.fade-enter {
-  opacity: 0.01;
-}
-
-.fade-enter.fade-enter-active {
-  opacity: 1;
-  transition: opacity 300ms;
-}
-
-.fade-exit {
-  opacity: 1;
-}
-
-.fade-exit.fade-exit-active {
-  opacity: 0.01;
-  transition: opacity 300ms;
+.fade-out {
+  opacity: 0;
 }
 
 @keyframes slideup {

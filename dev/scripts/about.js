@@ -8,8 +8,7 @@ import {
 
 import data from './data'
 
-export default class About extends React.Component {
-  render() {
+const About = () => {
     const { skillset, social } = data
     return (
       <section className="about">
@@ -49,4 +48,5 @@ export default class About extends React.Component {
       </section>
     )
   }
-}
+
+export default About

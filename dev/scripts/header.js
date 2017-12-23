@@ -1,13 +1,12 @@
 import React from 'react'
-
 import {
   BrowserRouter as Router,
   Route,
   Link
 } from 'react-router-dom'
+import Logo from './logo'
 
-export default class Header extends React.Component {
-  render() {
+const Header = () => {
     const headerClass = window.location.pathname === ('/')
     ? '' 
     : 'header__alt header__before';
@@ -18,18 +17,19 @@ export default class Header extends React.Component {
           <h3 className="header__subtitle">web developer</h3>
           <div>
             <Link to='/'>
-              <img className="header__logo" src="public/assets/images/logo.png" alt="Simon Steer logo" />
+              <Logo />
             </Link>
           </div>
           <nav>
             <ul>
-              <li><Link to='/about'>about</Link></li>
-              <li><Link to='/projects'>projects</Link></li>
-              <li><Link to='/contact'>contact</Link></li>
+              <li><Link onClick={() => window.scrollTo(0,0)} to='/about'>about</Link></li>
+              <li><Link onClick={() => window.scrollTo(0,0)} to='/projects'>projects</Link></li>
+              <li><Link onClick={() => window.scrollTo(0,0)} to='/contact'>contact</Link></li>
             </ul>
           </nav>
         </div>
       </header>
     )
   }
-}
+
+export default Header

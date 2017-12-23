@@ -47,9 +47,10 @@ figure {
 }
 
 section {
+  min-height: calc(100vh - 30px);
   padding: calc(75px + 3.75rem) 0 3rem 0;
   * {
-    transition: opacity 0.5s;
+    transition: opacity 0.3s;
   }
   &.projects {
     figure {
